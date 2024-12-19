@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/initializer.dir/src/initializer.c.o -o initializer 

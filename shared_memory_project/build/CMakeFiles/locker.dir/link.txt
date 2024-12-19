@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/locker.dir/src/locker.c.o -o locker 

@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/queue_reader.dir/src/queue_reader.c.o -o queue_reader 
