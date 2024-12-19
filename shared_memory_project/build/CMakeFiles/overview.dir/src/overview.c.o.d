@@ -1,5 +1,5 @@
 CMakeFiles/overview.dir/src/overview.c.o: \
- /home/hoang/sharedMemory/LTHT/DoAnLTHT/shared_memory_project/src/overview.c \
+ /home/hoang/sharedMemory/LTHT1/shared_memory_project/src/overview.c \
  /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -72,7 +72,7 @@ CMakeFiles/overview.dir/src/overview.c.o: \
  /usr/include/x86_64-linux-gnu/bits/time.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
- /home/hoang/sharedMemory/LTHT/DoAnLTHT/shared_memory_project/src/../include/shared_memory.h \
+ /home/hoang/sharedMemory/LTHT1/shared_memory_project/src/../include/shared_memory.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h /usr/include/unistd.h \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \

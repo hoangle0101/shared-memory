@@ -1,15 +1,23 @@
-// src/writer.c
 #include "../include/shared_memory.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <semaphore.h>
+#include <fcntl.h>
+#include <string.h>
+
+#define SEM_NAME "/shared_memory_sem"
 
 int main() {
-    int shm_id = shmget(SHM_KEY, SHM_SIZE, IPC_CREAT | 0666);
+    int shm_id = shmget(SHM_KEY, sizeof(SharedQueue), IPC_CREAT | 0666);
     if (shm_id < 0) {
         perror("shmget");
         exit(1);
     }
 
-    char *shared_memory = (char *)shmat(shm_id, NULL, 0);
-    if (shared_memory == (char *)-1) {
+    SharedQueue *queue = (SharedQueue *)shmat(shm_id, NULL, 0);
+    if (queue == (SharedQueue *)-1) {
         perror("shmat");
         exit(1);
     }
@@ -21,15 +29,16 @@ int main() {
     }
 
     sem_wait(sem);
-    print_current_time();
-    printf("Enter message: ");
-    fgets(shared_memory, SHM_SIZE, stdin);
-    print_current_time();
-    printf("Message written to shared memory: %s\n", shared_memory);
+
+    // Ghi vào buffer tạm trong shared memory
+    printf("Enter message (writer): ");
+    fgets(queue->buffer, SHM_SIZE, stdin);
+    printf("Message written to shared memory buffer: %s\n", queue->buffer);
+
     sem_post(sem);
 
     sem_close(sem);
-    shmdt(shared_memory);
+    shmdt(queue);
 
     return 0;
 }

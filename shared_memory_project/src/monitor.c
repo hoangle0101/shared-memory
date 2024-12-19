@@ -1,4 +1,3 @@
-// src/monitor.c
 #include "../include/shared_memory.h"
 #include <sys/shm.h>
 #include <sys/ipc.h>
@@ -10,8 +9,6 @@
 #include <unistd.h>
 
 #define SEM_NAME "/shared_memory_sem"
-
-
 
 void print_queue(SharedQueue *queue) {
     printf("Queue state:\n");
@@ -28,29 +25,31 @@ void print_queue(SharedQueue *queue) {
 
 int main() {
     // Kết nối tới shared memory
-    int shm_id = shmget(SHM_KEY, sizeof(SharedQueue), 0666);
+    int shm_id = shmget(SHM_KEY, sizeof(SharedQueue), IPC_CREAT | 0666);
     if (shm_id < 0) {
-        perror("shmget");
+        perror("shmget failed. Possible reasons: incorrect size, key conflict.");
         exit(1);
     }
 
+    // Kết nối tới shared memory
     char *shared_memory = (char *)shmat(shm_id, NULL, 0);
     if (shared_memory == (char *)-1) {
-        perror("shmat");
+        perror("shmat failed");
         exit(1);
     }
 
     // Kết nối semaphore để đảm bảo thread-safe
-    sem_t *sem = sem_open(SEM_NAME, 0);
+    sem_t *sem = sem_open(SEM_NAME, O_CREAT, 0666, 1);
     if (sem == SEM_FAILED) {
-        perror("sem_open");
+        perror("sem_open failed. Ensure initializer ran successfully.");
         exit(1);
     }
 
     printf("Monitoring shared memory and queue...\n");
 
-    char last_content[SHM_SIZE] = {0};          // Dùng để theo dõi nội dung shared memory
-    SharedQueue last_queue_state = {0};         // Dùng để theo dõi trạng thái queue
+    // Dùng để theo dõi nội dung shared memory và trạng thái queue
+    char last_content[SHM_SIZE] = {0};          
+    SharedQueue last_queue_state = {0};         
     SharedQueue *queue = (SharedQueue *)shared_memory; // Trỏ tới hàng đợi trong shared memory
 
     while (1) {
@@ -70,11 +69,15 @@ int main() {
         }
 
         sem_post(sem); // Giải phóng semaphore
-        sleep(1);
+        sleep(1); // Đợi 1 giây trước khi kiểm tra lại
     }
 
-    // Giải phóng shared memory
+    // Giải phóng semaphore và shared memory
+    sem_close(sem);
     shmdt(shared_memory);
+
+    // Nếu cần, xóa semaphore khi kết thúc chương trình
+    sem_unlink(SEM_NAME);
 
     return 0;
 }

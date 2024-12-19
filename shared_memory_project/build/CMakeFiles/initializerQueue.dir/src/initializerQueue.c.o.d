@@ -1,5 +1,5 @@
 CMakeFiles/initializerQueue.dir/src/initializerQueue.c.o: \
- /home/hoang/sharedMemory/LTHT/DoAnLTHT/shared_memory_project/src/initializerQueue.c \
+ /home/hoang/sharedMemory/LTHT1/shared_memory_project/src/initializerQueue.c \
  /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

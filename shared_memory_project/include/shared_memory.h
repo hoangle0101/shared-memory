@@ -18,6 +18,7 @@
 #define SEM_NAME "/shm_semaphore"
 #define QUEUE_CAPACITY 10  // Số lượng phần tử tối đa trong hàng đợi
 typedef struct {
+    char buffer[SHM_SIZE]; 
     int front;
     int rear;
     int size;

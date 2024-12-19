@@ -14,7 +14,8 @@ void view_queue(SharedQueue *queue) {
 }
 
 int main() {
-    int shm_id = shmget(SHM_KEY, SHM_SIZE, 0666);
+    int shm_id = shmget(SHM_KEY, sizeof(SharedQueue), 0666);
+
     if (shm_id < 0) {
         perror("shmget");
         exit(1);

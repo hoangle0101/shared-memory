@@ -2,7 +2,7 @@
 #include "../include/shared_memory.h"
 
 int main() {
-    int shm_id = shmget(SHM_KEY, SHM_SIZE, IPC_CREAT | 0666);
+    int shm_id = shmget(SHM_KEY, sizeof(SharedQueue), IPC_CREAT | 0666);
     if (shm_id < 0) {
         perror("shmget");
         exit(1);

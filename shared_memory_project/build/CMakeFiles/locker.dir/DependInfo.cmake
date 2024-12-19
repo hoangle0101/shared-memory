@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/hoang/sharedMemory/LTHT/DoAnLTHT/shared_memory_project/src/locker.c" "CMakeFiles/locker.dir/src/locker.c.o" "gcc" "CMakeFiles/locker.dir/src/locker.c.o.d"
+  "/home/hoang/sharedMemory/LTHT1/shared_memory_project/src/locker.c" "CMakeFiles/locker.dir/src/locker.c.o" "gcc" "CMakeFiles/locker.dir/src/locker.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

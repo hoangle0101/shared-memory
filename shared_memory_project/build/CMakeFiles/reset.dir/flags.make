@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/hoang/sharedMemory/LTHT/DoAnLTHT/shared_memory_project/include
+C_INCLUDES = -I/home/hoang/sharedMemory/LTHT1/shared_memory_project/include
 
 C_FLAGS = -std=gnu11
 

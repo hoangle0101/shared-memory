@@ -1,7 +1,7 @@
 CMakeFiles/restorer.dir/src/restorer.c.o: \
- /home/hoang/sharedMemory/LTHT/DoAnLTHT/shared_memory_project/src/restorer.c \
+ /home/hoang/sharedMemory/LTHT1/shared_memory_project/src/restorer.c \
  /usr/include/stdc-predef.h \
- /home/hoang/sharedMemory/LTHT/DoAnLTHT/shared_memory_project/src/../include/shared_memory.h \
+ /home/hoang/sharedMemory/LTHT1/shared_memory_project/src/../include/shared_memory.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

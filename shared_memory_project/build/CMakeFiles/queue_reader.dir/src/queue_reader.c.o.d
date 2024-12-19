@@ -1,7 +1,7 @@
 CMakeFiles/queue_reader.dir/src/queue_reader.c.o: \
- /home/hoang/sharedMemory/LTHT/DoAnLTHT/shared_memory_project/src/queue_reader.c \
+ /home/hoang/sharedMemory/LTHT1/shared_memory_project/src/queue_reader.c \
  /usr/include/stdc-predef.h \
- /home/hoang/sharedMemory/LTHT/DoAnLTHT/shared_memory_project/src/../include/shared_memory.h \
+ /home/hoang/sharedMemory/LTHT1/shared_memory_project/src/../include/shared_memory.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

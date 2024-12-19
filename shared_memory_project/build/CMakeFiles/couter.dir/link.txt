@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/couter.dir/src/couter.c.o -o couter 

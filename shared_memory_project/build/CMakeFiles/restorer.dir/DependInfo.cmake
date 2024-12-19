@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/hoang/sharedMemory/LTHT/DoAnLTHT/shared_memory_project/src/restorer.c" "CMakeFiles/restorer.dir/src/restorer.c.o" "gcc" "CMakeFiles/restorer.dir/src/restorer.c.o.d"
+  "/home/hoang/sharedMemory/LTHT1/shared_memory_project/src/restorer.c" "CMakeFiles/restorer.dir/src/restorer.c.o" "gcc" "CMakeFiles/restorer.dir/src/restorer.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
