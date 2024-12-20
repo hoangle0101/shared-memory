@@ -13,7 +13,5 @@
 /home/hoang/sharedMemory/LTHT1/shared_memory_project/build/CMakeFiles/backup.dir
 /home/hoang/sharedMemory/LTHT1/shared_memory_project/build/CMakeFiles/restorer.dir
 /home/hoang/sharedMemory/LTHT1/shared_memory_project/build/CMakeFiles/searcher.dir
-/home/hoang/sharedMemory/LTHT1/shared_memory_project/build/CMakeFiles/initializerQueue.dir
-/home/hoang/sharedMemory/LTHT1/shared_memory_project/build/CMakeFiles/logger.dir
 /home/hoang/sharedMemory/LTHT1/shared_memory_project/build/CMakeFiles/edit_cache.dir
 /home/hoang/sharedMemory/LTHT1/shared_memory_project/build/CMakeFiles/rebuild_cache.dir

@@ -1,47 +1,50 @@
-// src/reset.c
 #include "../include/shared_memory.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <semaphore.h>
+#include <fcntl.h>
+#include <string.h>
+
+#define SEM_NAME "/shared_memory_sem"
 
 int main() {
-    // Xóa Shared Memory (nếu tồn tại)
-    int shm_id = shmget(SHM_KEY, SHM_SIZE, 0666);
-    if (shm_id >= 0) {
-        if (shmctl(shm_id, IPC_RMID, NULL) == -1) {
-            perror("shmctl");
-        } else {
-            printf("Old shared memory segment deleted.\n");
-        }
-    } else {
-        perror("shmget (no shared memory to delete)");
-    }
-
-    // Xóa Semaphore (nếu tồn tại)
-    sem_t *sem = sem_open(SEM_NAME, 0);
-    if (sem != SEM_FAILED) {
-        sem_close(sem);
-        sem_unlink(SEM_NAME);
-        printf("Old semaphore deleted.\n");
-    } else {
-        perror("sem_open (no semaphore to delete)");
-    }
-
-    // Tạo lại Shared Memory
-    shm_id = shmget(SHM_KEY, SHM_SIZE, IPC_CREAT | 0666);
+    // Lấy ID của Shared Memory
+    int shm_id = shmget(SHM_KEY, sizeof(SharedQueue), 0666);
     if (shm_id < 0) {
         perror("shmget");
         exit(1);
-    } else {
-        printf("New shared memory segment created.\n");
     }
 
-    // Tạo lại Semaphore
-    sem = sem_open(SEM_NAME, O_CREAT, 0666, 1);
+    // Gắn Shared Memory
+    SharedQueue *queue = (SharedQueue *)shmat(shm_id, NULL, 0);
+    if (queue == (SharedQueue *)-1) {
+        perror("shmat");
+        exit(1);
+    }
+
+    // Mở semaphore
+    sem_t *sem = sem_open(SEM_NAME, 0);
     if (sem == SEM_FAILED) {
         perror("sem_open");
+        shmdt(queue);
         exit(1);
-    } else {
-        printf("New semaphore created.\n");
     }
 
-    printf("System reset successfully.\n");
+    // Đợi semaphore
+    sem_wait(sem);
+
+    // Xóa nội dung của buffer
+    memset(queue->buffer, 0, SHM_SIZE);
+    printf("Shared memory buffer cleared.\n");
+
+    // Giải phóng semaphore
+    sem_post(sem);
+
+    // Đóng semaphore và tách shared memory
+    sem_close(sem);
+    shmdt(queue);
+
     return 0;
 }

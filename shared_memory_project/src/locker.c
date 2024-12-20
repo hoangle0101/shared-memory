@@ -1,6 +1,6 @@
 // src/locker.c
 #include "../include/shared_memory.h"
-
+#define SEM_NAME "/shared_memory_sem"
 int main() {
     sem_t *sem = sem_open(SEM_NAME, 0);
     if (sem == SEM_FAILED) {

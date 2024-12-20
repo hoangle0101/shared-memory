@@ -311,32 +311,6 @@ searcher/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/searcher.dir/build.make CMakeFiles/searcher.dir/build
 .PHONY : searcher/fast
 
-#=============================================================================
-# Target rules for targets named initializerQueue
-
-# Build rule for target.
-initializerQueue: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 initializerQueue
-.PHONY : initializerQueue
-
-# fast build rule for target.
-initializerQueue/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/initializerQueue.dir/build.make CMakeFiles/initializerQueue.dir/build
-.PHONY : initializerQueue/fast
-
-#=============================================================================
-# Target rules for targets named logger
-
-# Build rule for target.
-logger: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 logger
-.PHONY : logger
-
-# fast build rule for target.
-logger/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/build
-.PHONY : logger/fast
-
 src/backup.o: src/backup.c.o
 .PHONY : src/backup.o
 
@@ -433,30 +407,6 @@ src/initializer.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/initializer.dir/build.make CMakeFiles/initializer.dir/src/initializer.c.s
 .PHONY : src/initializer.c.s
 
-src/initializerQueue.o: src/initializerQueue.c.o
-.PHONY : src/initializerQueue.o
-
-# target to build an object file
-src/initializerQueue.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/initializerQueue.dir/build.make CMakeFiles/initializerQueue.dir/src/initializerQueue.c.o
-.PHONY : src/initializerQueue.c.o
-
-src/initializerQueue.i: src/initializerQueue.c.i
-.PHONY : src/initializerQueue.i
-
-# target to preprocess a source file
-src/initializerQueue.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/initializerQueue.dir/build.make CMakeFiles/initializerQueue.dir/src/initializerQueue.c.i
-.PHONY : src/initializerQueue.c.i
-
-src/initializerQueue.s: src/initializerQueue.c.s
-.PHONY : src/initializerQueue.s
-
-# target to generate assembly for a file
-src/initializerQueue.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/initializerQueue.dir/build.make CMakeFiles/initializerQueue.dir/src/initializerQueue.c.s
-.PHONY : src/initializerQueue.c.s
-
 src/locker.o: src/locker.c.o
 .PHONY : src/locker.o
 
@@ -480,30 +430,6 @@ src/locker.s: src/locker.c.s
 src/locker.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/locker.dir/build.make CMakeFiles/locker.dir/src/locker.c.s
 .PHONY : src/locker.c.s
-
-src/logger.o: src/logger.c.o
-.PHONY : src/logger.o
-
-# target to build an object file
-src/logger.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/src/logger.c.o
-.PHONY : src/logger.c.o
-
-src/logger.i: src/logger.c.i
-.PHONY : src/logger.i
-
-# target to preprocess a source file
-src/logger.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/src/logger.c.i
-.PHONY : src/logger.c.i
-
-src/logger.s: src/logger.c.s
-.PHONY : src/logger.s
-
-# target to generate assembly for a file
-src/logger.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/logger.dir/build.make CMakeFiles/logger.dir/src/logger.c.s
-.PHONY : src/logger.c.s
 
 src/monitor.o: src/monitor.c.o
 .PHONY : src/monitor.o
@@ -757,9 +683,7 @@ help:
 	@echo "... deleterByKey"
 	@echo "... editor"
 	@echo "... initializer"
-	@echo "... initializerQueue"
 	@echo "... locker"
-	@echo "... logger"
 	@echo "... monitor"
 	@echo "... overview"
 	@echo "... queue"
@@ -782,15 +706,9 @@ help:
 	@echo "... src/initializer.o"
 	@echo "... src/initializer.i"
 	@echo "... src/initializer.s"
-	@echo "... src/initializerQueue.o"
-	@echo "... src/initializerQueue.i"
-	@echo "... src/initializerQueue.s"
 	@echo "... src/locker.o"
 	@echo "... src/locker.i"
 	@echo "... src/locker.s"
-	@echo "... src/logger.o"
-	@echo "... src/logger.i"
-	@echo "... src/logger.s"
 	@echo "... src/monitor.o"
 	@echo "... src/monitor.i"
 	@echo "... src/monitor.s"

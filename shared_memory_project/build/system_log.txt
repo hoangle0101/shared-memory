@@ -1,0 +1,3 @@
+23:47:27 - System initialized
+23:47:27 - Message added to queue
+23:47:27 - Message removed from queue
